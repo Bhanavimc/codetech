@@ -1,0 +1,16 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "Library/Inventory Management System API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {},
+  "author": "Your Name",
+  "license": "ISC"
+}
