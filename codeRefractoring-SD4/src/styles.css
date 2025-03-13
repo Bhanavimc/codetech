@@ -1,0 +1,203 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Section */
+.header {
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom: 10px solid #2575fc;
+}
+
+.header h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header p {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #fff;
+  color: #2575fc;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #2575fc;
+  color: white;
+}
+
+/* Services Section */
+.services {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.service-item {
+  background-color: #ecf0f1;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.service-item p {
+  font-size: 1.1em;
+  color: #7f8c8d;
+}
+
+/* Industries Section */
+.industries {
+  background-color: #f4f6f7;
+  padding: 60px 0;
+}
+
+.industries h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.industries ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.industries ul li {
+  display: inline-block;
+  font-size: 1.4em;
+  margin: 10px 20px;
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Testimonial Section */
+.testimonial {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.testimonial blockquote {
+  font-size: 1.2em;
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  font-style: italic;
+  text-align: center;
+  color: #555;
+}
+
+.testimonial footer {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2980b9;
+}
+
+/* Contact Section */
+.contact {
+  background-color: #2980b9;
+  color: white;
+  padding: 60px 20px;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.contact p {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #2575fc;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #6a11cb;
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}

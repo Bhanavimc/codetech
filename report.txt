@@ -1,0 +1,63 @@
+### **Report on Changes Made and Their Impact on Performance**
+
+#### **Introduction:**
+The goal of this report is to detail the changes made during the refactoring of the collaborative tool code and how these changes positively impacted the performance, maintainability, scalability, and overall readability of the code. The collaborative tool uses WebSockets for real-time updates in a coding or note-taking application, and the refactoring focused on improving code organization, error handling, and the separation of concerns.
+
+#### **Changes Made:**
+
+1. **Separation of Concerns:**
+   - **Previous State**: The WebSocket handling logic was embedded directly in the main server file (`server.js`), which mixed HTTP request handling and WebSocket connection logic in one file. This approach made the code harder to read, maintain, and scale.
+   - **Change**: The WebSocket handling was moved into a dedicated module (`wsHandler.js`), separating concerns for server management and real-time communication. This modular approach allows each file to have a single responsibility, improving code organization.
+
+   **Impact**: 
+   - **Performance**: No direct impact on performance in terms of speed, but it makes it easier to handle larger or more complex systems as new features or adjustments to the WebSocket logic can now be made independently.
+   - **Maintainability**: Code is easier to maintain because modifications related to WebSocket connections are now isolated in their own module. This makes it easier to add new WebSocket features (like multi-channel communication or broadcasting to specific users) without disrupting the server logic.
+
+2. **Modularization of Code:**
+   - **Previous State**: The client-side JavaScript for handling WebSocket events and the real-time content update logic was embedded directly within the HTML file (`index.html`), which made the code cumbersome and harder to debug or extend.
+   - **Change**: The frontend code was moved into a separate `app.js` file. The WebSocket logic for handling connections, sending and receiving messages, and interacting with the DOM was modularized into specific functions like `handleInput` and event listeners for `open`, `message`, `error`, and `close`.
+
+   **Impact**:
+   - **Performance**: This change has a minimal impact on the performance but improves the clarity and readability of the frontend logic, reducing potential errors and making debugging easier.
+   - **Maintainability**: Modularizing the frontend logic makes it easier to maintain. For example, future changes to the UI or WebSocket interaction logic (e.g., adding a richer editor or authentication) can be made without cluttering the HTML file.
+
+3. **Improved Error Handling:**
+   - **Previous State**: The initial code lacked proper error handling for WebSocket connections, both on the server-side and client-side. If an error occurred in the WebSocket communication, it could cause the application to fail silently or produce unexpected behaviors.
+   - **Change**: Added error handling for WebSocket connections. On both the server (`ws.on('error')`) and client (`socket.addEventListener('error')`), error events are caught and logged. This improves the overall robustness of the application.
+
+   **Impact**:
+   - **Performance**: While error handling does not have a direct performance impact, it improves the reliability of the application. It ensures that the application can handle WebSocket disconnections, server issues, or other communication errors gracefully, leading to a better user experience.
+   - **Maintainability**: Clear error handling makes the system more robust and easier to debug. When issues arise, they are logged, providing valuable insight for troubleshooting.
+
+4. **Improved Code Readability and Structure:**
+   - **Previous State**: The original code had a single large file where both server-side and client-side logic were mixed together. This made the application harder to understand, especially for other developers.
+   - **Change**: By splitting the server-side and client-side logic into separate files (`server.js` for server-side code and `app.js` for frontend JavaScript), the code becomes more organized and modular.
+   - **Frontend HTML**: The HTML structure remains simple and clean, only responsible for defining the layout and linking to the external JavaScript files.
+   
+   **Impact**:
+   - **Performance**: The impact on performance is negligible in terms of raw execution speed but improves the development workflow. The clear separation of concerns ensures that developers can focus on individual parts of the application, reducing the risk of introducing bugs when making changes.
+   - **Maintainability**: The structure is now easier to read and extend. For example, adding new features or updating the WebSocket logic is simplified because each component is decoupled from others.
+
+5. **Scalability for Future Enhancements:**
+   - **Previous State**: The previous architecture was tightly coupled and did not easily allow for future expansions (e.g., adding document persistence, user authentication, or advanced real-time collaboration features like cursor tracking).
+   - **Change**: By separating WebSocket handling and modularizing the frontend code, the system now lays a foundation for easy scaling. Features like authentication, different document types, or database integration can be added without significant refactoring.
+
+   **Impact**:
+   - **Performance**: Scalability improvements are mainly indirect but important for future performance. By using modular architecture and isolating responsibilities, we can more easily introduce performance optimizations (such as caching or more efficient data transmission protocols) in the future.
+   - **Maintainability**: Scalability improvements make the system more future-proof. As new features are added, the existing code will be easier to extend without introducing bugs or performance regressions.
+
+#### **Summary of Performance Impacts:**
+
+| Change Made                               | Impact on Performance         | Impact on Maintainability   | Impact on Scalability   |
+|-------------------------------------------|-------------------------------|-----------------------------|-------------------------|
+| Separation of Concerns                   | No direct performance impact  | Easier to maintain and debug | Easier to scale (new features can be added independently) |
+| Modularization of Code                   | No direct performance impact  | More organized and readable  | Simplifies future updates and extensions (e.g., adding rich text editor) |
+| Improved Error Handling                  | No direct performance impact  | More robust and reliable     | Helps in maintaining system stability during scaling |
+| Improved Code Readability and Structure  | No direct performance impact  | Easier to read, understand, and extend | Enables easier scaling by making the codebase more extensible |
+| Scalability for Future Enhancements      | Indirect (future optimizations possible) | Future changes are easier and less risky | Easier to introduce new features (e.g., document storage, authentication) |
+
+#### **Conclusion:**
+
+The changes made to the collaborative tool's code, while not drastically affecting performance in terms of speed, have significantly improved the maintainability, readability, and scalability of the code. The modularization and improved error handling make the codebase more robust, easier to debug, and better prepared for future feature additions. Furthermore, these improvements ensure that the application can scale efficiently as more users and features are introduced.
+
+In summary, while the immediate impact on raw performance might be minimal, the overall improvements make the system more reliable, maintainable, and scalable, which will lead to better long-term performance and user experience as the application grows.
